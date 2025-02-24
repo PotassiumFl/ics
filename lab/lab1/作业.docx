@@ -16,14 +16,14 @@
 15、tar -c
 16、tar -x
 17、pwd
-18、curl
+18、curl/wget
 19、echo
 20、find
 21、kill
 22、vim
-23、mount
+23、mount | grep 'on'/sudo vim /etc/fstab ?
 24、find
-25、&
+25、&/nohup ?
 26、user
 27、crontab -e
 28、大小写不敏感
