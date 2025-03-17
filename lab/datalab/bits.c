@@ -13,13 +13,13 @@ int tmin()
 
 int isTmax(int x)
 {
-    return ~x >> 31 & !(~(x << 1 | 1));
+    return !!((x + 1) ^ x) & !!(x + 1);
 }
 
 int allOddBits(int x)
 {
     int y = ~x;
-    return !((y & 0b1010101) & (y >> 8 & 0b1010101) & (y >> 16 & 0b1010101) & (y >> 24 & 0b1010101));
+    return !((y & 0b10101010) & (y >> 8 & 0b10101010) & (y >> 16 & 0b10101010) & (y >> 24 & 0b10101010));
 }
 
 int negate(int x)
@@ -46,18 +46,11 @@ int isLessOrEqual(int x, int y)
 
 int logicalNeg(int x)
 {
-    int y = 0;
-    int z = 1;
-    int n = ~!!x + 1;
-    int p = ~n;
-    return (n | z) & p | (~n ^ y) & n;
+    return x | (~x + 1) >> 31 + 1;
 }
 
 int main()
 {
-    int x = 0;
-    int y = 1;
-    int z = 2;
-    int n = !!x ? y : z;
-    printf("%d", n);
+    int a = allOddBits(__INT32_MAX__);
+    printf("%d", a);
 }
