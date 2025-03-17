@@ -41,7 +41,7 @@ int conditional(int x, int y, int z)
 
 int isLessOrEqual(int x, int y)
 {
-    return !!(~(~x >> 31) & (y >> 31)) | !!(~(~x + 1 + y) >> 31);
+    return !!((x >> 31) & !(y >> 31)) | !!(~(~x + 1 + y) >> 31) & !!((x >> 31) ^ !(y >> 31));
 }
 
 int logicalNeg(int x)
