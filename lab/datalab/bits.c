@@ -32,6 +32,27 @@ int isAsciDigit(int x)
     return x >> 5 & x >> 4 & (x >> 3 & (!(x & 0b110)) | (~x >> 3));
 }
 
+int conditional(int x, int y, int z)
+{
+    int n = ~!!x + 1;
+    int p = ~n;
+    return (n | z) & p | (~n ^ y) & n;
+}
+
+int isLessOrEqual(int x, int y)
+{
+    return !!(~(~x >> 31) & (y >> 31)) | !!(~(~x + 1 + y) >> 31);
+}
+
+int logicalNeg(int x)
+{
+    int y = 0;
+    int z = 1;
+    int n = ~!!x + 1;
+    int p = ~n;
+    return (n | z) & p | (~n ^ y) & n;
+}
+
 int main()
 {
     int x = 0;
